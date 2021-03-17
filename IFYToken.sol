@@ -18,7 +18,7 @@ interface IFYToken is IERC20 {
     function mature() external;
 
     /// @dev Burn fyToken after maturity for an amount of underlying.
-    function redeem(uint256 amount) external returns (uint256);
+    function redeem(address to, uint256 amount) external returns (uint256);
 
     /// @dev Mint fyToken.
     /// This function can only be called by other Yield contracts, not users directly.
