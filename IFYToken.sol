@@ -1,18 +1,14 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 pragma solidity ^0.8.0;
 import "@yield-protocol/utils/contracts/token/IERC20.sol";
-import "./IOracle.sol";
 
 
 interface IFYToken is IERC20 {
     /// @dev Asset that is returned on redemption. Also called underlying.
     function asset() external view returns (address);
 
-    /// @dev Oracle that returns the accrual of the borrowing rate, which is accrued after maturity.
-    function oracle() external view returns (IOracle);
-
     /// @dev Unix time at which redemption of fyToken for underlying are possible
-    function maturity() external view returns (uint32);
+    function maturity() external view returns (uint256);
     
     /// @dev Record price data at maturity
     function mature() external;
