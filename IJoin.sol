@@ -8,6 +8,8 @@ interface IJoin {
     function asset() external view returns (address);
 
     /// @dev Add tokens to this contract.
-    /// Or, if wad is negative, remove tokens from this contract.
-    function join(address user, int128 wad) external returns (int128);
+    function join(address user, uint128 wad) external returns (uint128);
+
+    /// @dev Remove tokens to this contract.
+    function exit(address user, uint128 wad) external returns (uint128);
 }
