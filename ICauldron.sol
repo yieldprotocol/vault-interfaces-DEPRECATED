@@ -68,8 +68,8 @@ interface ICauldron {
     /// @dev Manipulate a vault debt and collateral.
     function pour(bytes12 vaultId, int128 ink, int128 art) external returns (DataTypes.Balances memory);
 
-    /// @dev Manipulate a vault debt and collateral without collateralization checks
-    function slurp(bytes12 vaultId, int128 ink, int128 art) external returns (DataTypes.Balances memory);
+    /// @dev Reduce debt and collateral from a vault, ignoring collateralization checks.
+    function slurp(bytes12 vaultId, uint128 ink, uint128 art) external returns (DataTypes.Balances memory);
 
     /// @dev Give a vault to another user.
     function give(bytes12 vaultId, address user) external;
