@@ -4,8 +4,8 @@ import "@yield-protocol/utils/contracts/token/IERC20.sol";
 
 
 interface IJoin {
-    /// @dev ERC20 token managed by this contract
-    function token() external view returns (IERC20);
+    /// @dev asset managed by this contract
+    function asset() external view returns (address);
 
     /// @dev Add tokens to this contract.
     /// Or, if wad is negative, remove tokens from this contract.
