@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 pragma solidity ^0.8.0;
-import "@yield-protocol/utils/contracts/token/IERC20.sol";
 import "./IFYToken.sol";
-import "./IJoin.sol";
 import "./IOracle.sol";
 import "./DataTypes.sol";
 
@@ -41,11 +39,8 @@ interface ICauldron {
     /// @dev Series available in Cauldron.
     function series(bytes6 seriesId) external returns (DataTypes.Series memory);
 
-    /// @dev Collaterals available in Cauldron.
-    function assets(bytes6 assetsDd) external returns (IERC20);
-
-    /// @dev Underlyings available in Cauldron.
-    // function assets(bytes6 id) external returns (IERC20);
+    /// @dev Assets available in Cauldron.
+    function assets(bytes6 assetsId) external returns (address);
 
     /// @dev Each vault records debt and collateral balances_.
     function balances(bytes12 vault) external view returns (DataTypes.Balances memory);
