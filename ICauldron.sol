@@ -31,16 +31,16 @@ interface ICauldron {
     // function chiOracles(bytes6 asset) external returns (address);
 
     /// @dev Rate (borrowing rate) accruals oracle for an underlying
-    function rateOracles(bytes6 baseId) external returns (IOracle);
+    function rateOracles(bytes6 baseId) external view returns (IOracle);
 
     /// @dev An user can own one or more Vaults, with each vault being able to borrow from a single series.
     function vaults(bytes12 vault) external view returns (DataTypes.Vault memory);
 
     /// @dev Series available in Cauldron.
-    function series(bytes6 seriesId) external returns (DataTypes.Series memory);
+    function series(bytes6 seriesId) external view returns (DataTypes.Series memory);
 
     /// @dev Assets available in Cauldron.
-    function assets(bytes6 assetsId) external returns (address);
+    function assets(bytes6 assetsId) external view returns (address);
 
     /// @dev Each vault records debt and collateral balances_.
     function balances(bytes12 vault) external view returns (DataTypes.Balances memory);
