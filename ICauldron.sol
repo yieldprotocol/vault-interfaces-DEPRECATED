@@ -74,8 +74,8 @@ interface ICauldron {
     /// @dev Give a vault to another user.
     function give(bytes12 vaultId, address user) external;
 
-    /// @dev Move collateral between vaults.
-    function stir(bytes12 from, bytes12 to, uint128 ink) external returns (DataTypes.Balances memory, DataTypes.Balances memory);
+    /// @dev Move collateral and debt between vaults.
+    function stir(bytes12 from, bytes12 to, uint128 ink, uint128 art) external returns (DataTypes.Balances memory, DataTypes.Balances memory);
 
     // ==== Accounting ====
 

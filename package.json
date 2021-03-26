@@ -1,6 +1,6 @@
 {
   "name": "@yield-protocol/vault-interfaces",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "Yield Protocol vault interfaces and libraries",
   "author": "Yield Inc.",
   "files": [
