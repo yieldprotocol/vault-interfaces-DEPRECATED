@@ -49,13 +49,22 @@ interface ICauldron {
     function timestamps(bytes12 vault) external view returns (uint32);
 
     /// @dev Create a new vault, linked to a series (and therefore underlying) and up to 5 collateral types
-    function build(address owner, bytes12 vaultId, bytes6 seriesId, bytes6 ilkId) external;
+    function build(address owner, bytes12 vaultId, bytes6 seriesId, bytes6 ilkId) external returns (DataTypes.Vault memory);
 
     /// @dev Destroy an empty vault. Used to recover gas costs.
     function destroy(bytes12 vault) external;
 
     /// @dev Change a vault series and/or collateral types.
-    function tweak(bytes12 vaultId, bytes6 seriesId, bytes6 ilkId) external;
+    function tweak(bytes12 vaultId, bytes6 seriesId, bytes6 ilkId) external returns (DataTypes.Vault memory);
+
+    /// @dev Give a vault to another user.
+    function give(bytes12 vaultId, address user) external returns (DataTypes.Vault memory);
+
+    /// @dev Move collateral and debt between vaults.
+    function stir(bytes12 from, bytes12 to, uint128 ink, uint128 art) external returns (DataTypes.Balances memory, DataTypes.Balances memory);
+
+    /// @dev Manipulate a vault debt and collateral.
+    function pour(bytes12 vaultId, int128 ink, int128 art) external returns (DataTypes.Balances memory);
 
     /// @dev Change series and debt of a vault.
     /// The module calling this function also needs to buy underlying in the pool for the new series, and sell it in pool for the old series.
@@ -65,17 +74,8 @@ interface ICauldron {
     /// To be used for liquidation engines.
     function grab(bytes12 vault) external;
 
-    /// @dev Manipulate a vault debt and collateral.
-    function pour(bytes12 vaultId, int128 ink, int128 art) external returns (DataTypes.Balances memory);
-
     /// @dev Reduce debt and collateral from a vault, ignoring collateralization checks.
     function slurp(bytes12 vaultId, uint128 ink, uint128 art) external returns (DataTypes.Balances memory);
-
-    /// @dev Give a vault to another user.
-    function give(bytes12 vaultId, address user) external;
-
-    /// @dev Move collateral and debt between vaults.
-    function stir(bytes12 from, bytes12 to, uint128 ink, uint128 art) external returns (DataTypes.Balances memory, DataTypes.Balances memory);
 
     // ==== Accounting ====
 
