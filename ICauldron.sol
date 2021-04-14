@@ -79,6 +79,12 @@ interface ICauldron {
 
     // ==== Accounting ====
 
+    /// @dev Record the borrowing rate at maturity for a series
+    function mature(bytes6 seriesId) external;
+    
+    /// @dev Retrieve the rate accrual since maturity, maturing if necessary.
+    function accrual(bytes6 seriesId) external returns (uint256);
+    
     /// @dev Return the vault debt in underlying terms
     // function dues(bytes12 vault) external view returns (uint128 uart);
 
