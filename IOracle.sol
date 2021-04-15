@@ -3,6 +3,6 @@ pragma solidity ^0.8.0;
 
 
 interface IOracle {
-    /// @dev Return the spot price.
-    function spot() external view returns (uint128);
+    /// @dev Return the price.
+    function get() external returns (uint256);
 }
