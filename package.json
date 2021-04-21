@@ -1,13 +1,13 @@
 {
   "name": "@yield-protocol/vault-interfaces",
-  "version": "2.0.19",
+  "version": "2.0.20",
   "description": "Yield Protocol vault interfaces and libraries",
   "author": "Yield Inc.",
   "files": [
     "*.sol"
   ],
   "devDependencies": {
-    "@yield-protocol/utils": "^1.2.2"
+    "@yield-protocol/utils-v2": "^2.2.1"
   },
   "repository": {
     "url": "git+https://github.com/yieldprotocol/vault-interfaces.git",
