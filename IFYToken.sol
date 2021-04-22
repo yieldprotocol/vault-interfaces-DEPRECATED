@@ -22,13 +22,6 @@ interface IFYToken is IERC20 {
     /// @param fyTokenAmount Amount of fyToken to mint.
     function mint(address to, uint256 fyTokenAmount) external;
 
-    /// @dev Mint fyToken to `to` and to the benficiary
-    /// This function can only be called by other Yield contracts, not users directly.
-    /// @param to Wallet to mint the fyToken in.
-    /// @param fyTokenAmount Amount of fyToken to mint.
-    /// @param fee Amount of fyToken to mint to the beneficiary.
-    function mintWithFee(address to, uint256 fyTokenAmount, uint256 fee) external;
-
     /// @dev Burn fyToken.
     /// This function can only be called by other Yield contracts, not users directly.
     /// @param from Wallet to burn the fyToken from.
