@@ -68,7 +68,7 @@ interface ICauldron {
 
     /// @dev Change series and debt of a vault.
     /// The module calling this function also needs to buy underlying in the pool for the new series, and sell it in pool for the old series.
-    function roll(bytes12 vaultId, bytes6 seriesId, uint128 art) external returns (DataTypes.Vault memory, DataTypes.Balances memory);
+    function roll(bytes12 vaultId, bytes6 seriesId, int128 art) external returns (DataTypes.Vault memory, DataTypes.Balances memory);
 
     /// @dev Give a non-timestamped vault to the caller, and timestamp it.
     /// To be used for liquidation engines.
