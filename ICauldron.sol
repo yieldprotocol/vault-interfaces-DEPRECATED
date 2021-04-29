@@ -6,29 +6,6 @@ import "./DataTypes.sol";
 
 
 interface ICauldron {
-    /// @dev Add a collateral to Cauldron
-    // function addAsset(bytes6 id, address asset) external;
-
-    /// @dev Add an underlying to Cauldron
-    // function addAsset(address asset) external;
-
-    /// @dev Add a series to Cauldron
-    // function addSeries(bytes32 series, IERC20 asset, IFYToken fyToken) external;
-
-    /// @dev Add a spot oracle to Cauldron
-    // function setSpotOracle(IERC20 asset, IERC20 asset, IOracle oracle) external;
-
-    /// @dev Add a chi oracle to Cauldron
-    // function addChiOracle(IERC20 asset, IOracle oracle) external;
-
-    /// @dev Add a rate oracle to Cauldron
-    // function addRateOracle(IERC20 asset, IOracle oracle) external;
-
-    /// @dev Spot price oracle for an underlying and collateral
-    // function chiOracles(bytes6 asset, bytes6 asset) external returns (address);
-
-    /// @dev Chi (savings rate) accruals oracle for an underlying
-    // function chiOracles(bytes6 asset) external returns (address);
 
     /// @dev Rate (borrowing rate) accruals oracle for an underlying
     function rateOracles(bytes6 baseId) external view returns (IOracle);
@@ -58,7 +35,7 @@ interface ICauldron {
     function tweak(bytes12 vaultId, bytes6 seriesId, bytes6 ilkId) external returns (DataTypes.Vault memory);
 
     /// @dev Give a vault to another user.
-    function give(bytes12 vaultId, address user) external returns (DataTypes.Vault memory);
+    function give(bytes12 vaultId, address receiver) external returns (DataTypes.Vault memory);
 
     /// @dev Move collateral and debt between vaults.
     function stir(bytes12 from, bytes12 to, uint128 ink, uint128 art) external returns (DataTypes.Balances memory, DataTypes.Balances memory);
@@ -70,9 +47,9 @@ interface ICauldron {
     /// The module calling this function also needs to buy underlying in the pool for the new series, and sell it in pool for the old series.
     function roll(bytes12 vaultId, bytes6 seriesId, int128 art) external returns (DataTypes.Vault memory, DataTypes.Balances memory);
 
-    /// @dev Give a non-timestamped vault to the caller, and timestamp it.
+    /// @dev Give a non-timestamped vault to another user, and timestamp it.
     /// To be used for liquidation engines.
-    function grab(bytes12 vault) external;
+    function grab(bytes12 vault, address receiver) external;
 
     /// @dev Reduce debt and collateral from a vault, ignoring collateralization checks.
     function slurp(bytes12 vaultId, uint128 ink, uint128 art) external returns (DataTypes.Balances memory);
@@ -84,13 +61,4 @@ interface ICauldron {
     
     /// @dev Retrieve the rate accrual since maturity, maturing if necessary.
     function accrual(bytes6 seriesId) external returns (uint256);
-    
-    /// @dev Return the vault debt in underlying terms
-    // function dues(bytes12 vault) external view returns (uint128 uart);
-
-    /// @dev Return the capacity of the vault to borrow underlying assetd on the assets held
-    // function value(bytes12 vault) external view returns (uint128 uart);
-
-    /// @dev Return the collateralization level of a vault. It will be negative if undercollateralized.
-    // function level(bytes12 vault) external view returns (int128);
 }
