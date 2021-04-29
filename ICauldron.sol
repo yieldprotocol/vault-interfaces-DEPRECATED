@@ -23,7 +23,7 @@ interface ICauldron {
     function balances(bytes12 vault) external view returns (DataTypes.Balances memory);
 
     /// @dev Time at which a vault entered liquidation.
-    function timestamps(bytes12 vault) external view returns (uint32);
+    function auctions(bytes12 vault) external view returns (uint32);
 
     /// @dev Create a new vault, linked to a series (and therefore underlying) and up to 5 collateral types
     function build(address owner, bytes12 vaultId, bytes6 seriesId, bytes6 ilkId) external returns (DataTypes.Vault memory);
