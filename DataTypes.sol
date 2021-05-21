@@ -13,7 +13,9 @@ library DataTypes {
     }
 
     struct Debt {
-        uint128 max;                                                    // Maximum debt accepted for a given underlying, across all series
+        uint96 max;                                                     // Maximum debt accepted for a given underlying, across all series
+        uint24 min;                                                     // Minimum debt accepted for a given underlying, across all series
+        uint8 dec;                                                      // Multiplying factor (10**dec) for max and min 
         uint128 sum;                                                    // Current debt for a given underlying, across all series
     }
 
