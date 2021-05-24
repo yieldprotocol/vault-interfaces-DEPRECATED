@@ -14,5 +14,5 @@ interface ICauldronGov {
     function addIlks(bytes6, bytes6[] memory) external;
     function setRateOracle(bytes6, IOracle) external;
     function setSpotOracle(bytes6, bytes6, IOracle, uint32) external;
-    function setMaxDebt(bytes6, bytes6, uint128) external;
+    function setDebtLimits(bytes6, bytes6, uint96, uint24, uint8) external;
 }
