@@ -6,5 +6,4 @@ interface IJoinFactory {
   event JoinCreated(address indexed asset, address pool);
 
   function createJoin(address asset) external returns (address);
-  function nextAsset() external view returns (address);
 }
