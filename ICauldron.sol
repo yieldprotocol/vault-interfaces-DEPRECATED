@@ -54,6 +54,15 @@ interface ICauldron {
     /// @dev Reduce debt and collateral from a vault, ignoring collateralization checks.
     function slurp(bytes12 vaultId, uint128 ink, uint128 art) external returns (DataTypes.Balances memory);
 
+    // ==== Helpers ====
+
+    /// @dev Convert a debt amount for a series from base to fyToken terms.
+    /// @notice Think about rounding if using, since we are dividing.
+    function debtFromBase(bytes6 seriesId, uint128 base) external returns (uint128 art);
+
+    /// @dev Convert a debt amount for a series from fyToken to base terms
+    function debtToBase(bytes6 seriesId, uint128 art) external returns (uint128 base);
+
     // ==== Accounting ====
 
     /// @dev Record the borrowing rate at maturity for a series
