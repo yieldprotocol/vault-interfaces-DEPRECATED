@@ -13,4 +13,9 @@ interface IOracle {
      * @return value in wei
      */
     function get(bytes32 base, bytes32 quote, uint256 amount) external returns (uint256 value, uint256 updateTime);
+
+    /**
+     * @notice Number of decimals in the amounts returned by the oracle.
+     */
+    function decimals() external view returns (uint8);
 }
