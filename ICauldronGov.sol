@@ -8,7 +8,7 @@ import "./DataTypes.sol";
 interface ICauldronGov {
     function assets(bytes6) external view returns (address);
     function series(bytes6) external view returns (DataTypes.Series memory);
-    function rateOracles(bytes6) external view returns (IOracle);
+    function lendingOracles(bytes6) external view returns (IOracle);
     function addAsset(bytes6, address) external;
     function addSeries(bytes6, bytes6, IFYToken) external;
     function addIlks(bytes6, bytes6[] memory) external;
