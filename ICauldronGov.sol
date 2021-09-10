@@ -12,7 +12,7 @@ interface ICauldronGov {
     function addAsset(bytes6, address) external;
     function addSeries(bytes6, bytes6, IFYToken) external;
     function addIlks(bytes6, bytes6[] memory) external;
-    function setRateOracle(bytes6, IOracle) external;
+    function setLendingOracle(bytes6, IOracle) external;
     function setSpotOracle(bytes6, bytes6, IOracle, uint32) external;
     function setDebtLimits(bytes6, bytes6, uint96, uint24, uint8) external;
 }

@@ -7,8 +7,8 @@ import "./DataTypes.sol";
 
 interface ICauldron {
 
-    /// @dev Rate (borrowing rate) accruals oracle for an underlying
-    function rateOracles(bytes6 baseId) external view returns (IOracle);
+    /// @dev Variable rate lending oracle for an underlying
+    function lendingOracles(bytes6 baseId) external view returns (IOracle);
 
     /// @dev An user can own one or more Vaults, with each vault being able to borrow from a single series.
     function vaults(bytes12 vault) external view returns (DataTypes.Vault memory);
