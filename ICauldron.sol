@@ -22,8 +22,8 @@ interface ICauldron {
     /// @dev Each vault records debt and collateral balances_.
     function balances(bytes12 vault) external view returns (DataTypes.Balances memory);
 
-    /// @dev Time at which a vault entered liquidation.
-    function auctions(bytes12 vault) external view returns (uint32);
+    /// @dev Max, min and sum of debt per underlying and collateral.
+    function debt(bytes6 baseId, bytes6 ilkId) external view returns (DataTypes.Debt memory);
 
     /// @dev Create a new vault, linked to a series (and therefore underlying) and up to 5 collateral types
     function build(address owner, bytes12 vaultId, bytes6 seriesId, bytes6 ilkId) external returns (DataTypes.Vault memory);
