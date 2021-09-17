@@ -13,6 +13,9 @@ interface IFYToken is IERC20 {
     /// @dev Record price data at maturity
     function mature() external;
 
+    /// @dev Mint fyToken providing an equal amount of underlying to the protocol
+    function mintWithUnderlying(address to, uint256 amount) external;
+
     /// @dev Burn fyToken after maturity for an amount of underlying.
     function redeem(address to, uint256 amount) external returns (uint256);
 
