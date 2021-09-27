@@ -47,10 +47,6 @@ interface ICauldron {
     /// The module calling this function also needs to buy underlying in the pool for the new series, and sell it in pool for the old series.
     function roll(bytes12 vaultId, bytes6 seriesId, int128 art) external returns (DataTypes.Vault memory, DataTypes.Balances memory);
 
-    /// @dev Give a non-timestamped vault to another user, and timestamp it.
-    /// To be used for liquidation engines.
-    function grab(bytes12 vault, address receiver) external;
-
     /// @dev Reduce debt and collateral from a vault, ignoring collateralization checks.
     function slurp(bytes12 vaultId, uint128 ink, uint128 art) external returns (DataTypes.Balances memory);
 
@@ -70,4 +66,7 @@ interface ICauldron {
     
     /// @dev Retrieve the rate accrual since maturity, maturing if necessary.
     function accrual(bytes6 seriesId) external returns (uint256);
+
+    /// @dev Return the collateralization level of a vault. It will be negative if undercollateralized.
+    function level(bytes12 vaultId) external returns (int256);
 }
