@@ -25,6 +25,9 @@ interface ICauldron {
     /// @dev Max, min and sum of debt per underlying and collateral.
     function debt(bytes6 baseId, bytes6 ilkId) external view returns (DataTypes.Debt memory);
 
+    // @dev Spot price oracle addresses and collateralization ratios
+    function spotOracles(bytes6 baseId, bytes6 ilkId) external returns (DataTypes.SpotOracle memory);
+
     /// @dev Create a new vault, linked to a series (and therefore underlying) and up to 5 collateral types
     function build(address owner, bytes12 vaultId, bytes6 seriesId, bytes6 ilkId) external returns (DataTypes.Vault memory);
 
@@ -69,4 +72,7 @@ interface ICauldron {
 
     /// @dev Return the collateralization level of a vault. It will be negative if undercollateralized.
     function level(bytes12 vaultId) external returns (int256);
+
+    /// @dev Convert a debt amount for a series from fyToken to base terms
+    function debtToBase(bytes6 seriesId, uint128 art) external returns (uint128 base);
 }
