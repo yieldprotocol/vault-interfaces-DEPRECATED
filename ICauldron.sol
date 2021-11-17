@@ -72,7 +72,4 @@ interface ICauldron {
 
     /// @dev Return the collateralization level of a vault. It will be negative if undercollateralized.
     function level(bytes12 vaultId) external returns (int256);
-
-    /// @dev Convert a debt amount for a series from fyToken to base terms
-    function debtToBase(bytes6 seriesId, uint128 art) external returns (uint128 base);
 }
