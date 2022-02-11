@@ -2,14 +2,13 @@
 pragma solidity ^0.8.0;
 import "@yield-protocol/utils-v2/contracts/token/IERC20.sol";
 
-
 interface IFYToken is IERC20 {
     /// @dev Asset that is returned on redemption.
     function underlying() external view returns (address);
 
     /// @dev Unix time at which redemption of fyToken for underlying are possible
     function maturity() external view returns (uint256);
-    
+
     /// @dev Record price data at maturity
     function mature() external;
 

@@ -5,14 +5,18 @@ import "./IOracle.sol";
 import "./IJoin.sol";
 
 interface IFYTokenFactory {
-  event FYTokenCreated(address indexed fyToken, address indexed asset, uint32 indexed maturity);
+    event FYTokenCreated(
+        address indexed fyToken,
+        address indexed asset,
+        uint32 indexed maturity
+    );
 
-  function createFYToken(
-    bytes6 baseId,
-    IOracle oracle,
-    IJoin baseJoin,
-    uint32 maturity,
-    string memory name,
-    string memory symbol
-  ) external returns (address);
+    function createFYToken(
+        bytes6 baseId,
+        IOracle oracle,
+        IJoin baseJoin,
+        uint32 maturity,
+        string memory name,
+        string memory symbol
+    ) external returns (address);
 }
