@@ -2,7 +2,6 @@
 pragma solidity ^0.8.0;
 import "@yield-protocol/utils-v2/contracts/token/IERC20.sol";
 
-
 interface IJoin {
     /// @dev asset managed by this contract
     function asset() external view returns (address);

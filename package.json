@@ -7,7 +7,10 @@
     "*.sol"
   ],
   "devDependencies": {
-    "@yield-protocol/utils-v2": "^2.2.2"
+    "@yield-protocol/utils-v2": "^2.2.2",
+    "prettier": "^2.5.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "solhint": "^3.3.7"
   },
   "repository": {
     "url": "git+https://github.com/yieldprotocol/vault-interfaces.git",
@@ -20,6 +23,13 @@
   "homepage": "https://github.com/yieldprotocol/vault-interfaces#readme",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write './**/*.sol'",
+    "prettier:list": "prettier --list-different './**/*.sol'",
+    "prettier:check": "prettier --check './**/*.sol'",
+    "solhint": "solhint --config ./.solhint.json './*.sol' --fix",
+    "solhint:check": "solhint --config ./.solhint.json './*.sol'",
+    "lint": "npm run prettier && npm run solhint",
+    "lint:check": "npm run prettier:check && npm run solhint:check"
   }
 }
