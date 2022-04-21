@@ -1,10 +1,10 @@
 {
   "name": "@yield-protocol/vault-interfaces",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Yield Protocol vault interfaces and libraries",
   "author": "Yield Inc.",
   "files": [
-    "*.sol"
+    "src/**/*.sol"
   ],
   "devDependencies": {
     "@yield-protocol/utils-v2": "^2.2.2",
