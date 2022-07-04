@@ -5,7 +5,7 @@ import "./ILadle.sol";
 import "./ICauldron.sol";
 import "./DataTypes.sol";
 
-interface IWitchV2 {
+interface IWitch {
     function cauldron() external returns (ICauldron);
 
     function ladle() external returns (ILadle);
