@@ -12,13 +12,9 @@ interface IWitchV2 {
 
     function auctions(bytes12) external returns (DataTypes.Auction memory);
 
-    function lines(bytes6, bytes6)
-        external
-        returns (DataTypes.Line memory);
+    function lines(bytes6, bytes6) external returns (DataTypes.Line memory);
 
-    function limits(bytes6, bytes6)
-        external
-        returns (DataTypes.Limits memory);
+    function limits(bytes6, bytes6) external returns (DataTypes.Limits memory);
 
     /// @dev Put an undercollateralized vault up for liquidation
     /// @param vaultId Id of vault to liquidate
